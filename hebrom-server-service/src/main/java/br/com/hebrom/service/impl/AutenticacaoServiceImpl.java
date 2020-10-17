@@ -10,7 +10,11 @@ import br.com.hebrom.service.AutenticacaoService;
 public class AutenticacaoServiceImpl implements AutenticacaoService {
 
     @Override
-    public AutenticacaoRetrieveDTO realizarLogin(AutenticacaoPayloadDTO autenticacaoDTO) {
+    public AutenticacaoRetrieveDTO realizarLogin(AutenticacaoPayloadDTO autenticacaoDTO) throws Exception {
+
+        if (!autenticacaoDTO.getUsuario().equals("admin")) {
+            throw new Exception("Errooou");
+        }
 
         AutenticacaoRetrieveDTO autenticacaoRetrieveDTO = new AutenticacaoRetrieveDTO();
         autenticacaoRetrieveDTO.setNome("Jackson");

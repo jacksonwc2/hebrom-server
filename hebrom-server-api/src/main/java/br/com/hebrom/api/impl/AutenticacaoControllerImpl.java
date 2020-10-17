@@ -18,7 +18,7 @@ public class AutenticacaoControllerImpl implements AutenticacaoController {
     @Autowired
     private AutenticacaoService autenticacaoService;
 
-    public ResponseEntity<AutenticacaoRetrieveDTO> realizarLogin(@RequestBody AutenticacaoPayloadDTO autenticacaoDTO) {
+    public ResponseEntity<AutenticacaoRetrieveDTO> realizarLogin(@RequestBody AutenticacaoPayloadDTO autenticacaoDTO) throws Exception {
 
         return ResponseEntity.ok(autenticacaoService.realizarLogin(autenticacaoDTO));
     }

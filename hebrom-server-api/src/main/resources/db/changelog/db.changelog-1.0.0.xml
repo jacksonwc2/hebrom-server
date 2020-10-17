@@ -1,0 +1,21 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+	<changeSet author="Jackson Willian Carbonera" id="criar_tb_usuario">
+
+		<createTable remarks="Entidade Usuario" tableName="tb_usuario">
+			<column name="id_usuario" type="numeric">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="tx_login" type="varchar(32)"></column>
+			<column name="tx_senha" type="varchar(32)"></column>
+		</createTable>
+
+		<createSequence incrementBy="1" sequenceName="seq_usuario" startValue="1" />
+
+	</changeSet>
+
+</databaseChangeLog>

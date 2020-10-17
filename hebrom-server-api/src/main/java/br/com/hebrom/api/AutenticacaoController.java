@@ -12,6 +12,6 @@ import br.com.hebrom.retrieve.AutenticacaoRetrieveDTO;
 public interface AutenticacaoController {
 
     @PostMapping(value = "/login", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE })
-    ResponseEntity<AutenticacaoRetrieveDTO> realizarLogin(AutenticacaoPayloadDTO autenticacaoDTO);
+    ResponseEntity<AutenticacaoRetrieveDTO> realizarLogin(AutenticacaoPayloadDTO autenticacaoDTO) throws Exception;
 
 }

@@ -5,6 +5,6 @@ import br.com.hebrom.retrieve.AutenticacaoRetrieveDTO;
 
 public interface AutenticacaoService {
 
-    public abstract AutenticacaoRetrieveDTO realizarLogin(AutenticacaoPayloadDTO autenticacaoDTO);
+    public abstract AutenticacaoRetrieveDTO realizarLogin(AutenticacaoPayloadDTO autenticacaoDTO) throws Exception;
 
 }
