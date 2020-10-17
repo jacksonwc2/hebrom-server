@@ -1,2 +1,2 @@
 # hebrom-server
-Projeto desenvolvido em Java/spring para TCC
+Projeto desenvolvido em Java/spring para TCC.

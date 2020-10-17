@@ -1,0 +1,6 @@
+br\com\hebrom\api\AutenticacaoController.class
+br\com\hebrom\Application.class
+br\com\hebrom\config\ObjectMapperConfiguration.class
+br\com\hebrom\config\HerbomServerApiScan.class
+br\com\hebrom\api\impl\AutenticacaoControllerImpl.class
+br\com\hebrom\security\SecurityConfiguration.class
