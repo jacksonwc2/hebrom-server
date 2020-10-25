@@ -18,11 +18,14 @@ import lombok.Setter;
 @Table(name = "tb_categoria")
 public class Categoria {
 
-	@Id
-	@Column(name = "id_categoria")
-	@GeneratedValue(generator = "seq_categoria")
-	private Long id;
-	
-	@Column(name = "tx_descricao")
-	private String descricao;
+    @Id
+    @Column(name = "id_categoria")
+    @GeneratedValue(generator = "seq_categoria")
+    private Long id;
+
+    @Column(name = "tx_descricao")
+    private String descricao;
+
+    @Column(name = "tx_observacao")
+    private String observacao;
 }
