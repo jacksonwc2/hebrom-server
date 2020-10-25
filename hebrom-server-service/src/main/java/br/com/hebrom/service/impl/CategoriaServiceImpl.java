@@ -39,7 +39,6 @@ public class CategoriaServiceImpl implements CategoriaService {
         }
 
         categoria.setDescricao(categoriaDTO.getDescricao());
-        categoria.setObservacao(categoriaDTO.getObservacao());
 
         return ModelMapperUtil.convert(categoriaRepository.save(categoria), CategoriaDTO.class);
     }

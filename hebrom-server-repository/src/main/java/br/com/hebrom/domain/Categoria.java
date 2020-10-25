@@ -25,7 +25,4 @@ public class Categoria {
 
     @Column(name = "tx_descricao")
     private String descricao;
-
-    @Column(name = "tx_observacao")
-    private String observacao;
 }

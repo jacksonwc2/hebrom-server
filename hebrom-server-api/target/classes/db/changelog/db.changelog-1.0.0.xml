@@ -25,7 +25,6 @@
 				<constraints primaryKey="true" />
 			</column>
 			<column name="tx_descricao" type="varchar(32)"></column>
-			<column name="tx_observacao" type="varchar(255)"></column>
 		</createTable>
 
 		<createSequence incrementBy="1" sequenceName="seq_categoria" startValue="1" />
