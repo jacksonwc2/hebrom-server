@@ -15,19 +15,21 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "tb_usuario")
-public class Usuario {
+@Table(name = "tb_localizacao")
+public class Localizacao {
 
 	@Id
-	@Column(name = "id_usuario")
-	@GeneratedValue(generator = "seq_usuario")
+	@Column(name = "id_localizacao")
+	@GeneratedValue(generator = "seq_localizacao")
 	private Long id;
 
-	@Column(name = "tx_login")
-	private String login;
+	@Column(name = "tx_localizacao")
+	private String localizacao;
 
-	@Column(name = "tx_senha")
-	private String senha;
+	@Column(name = "tx_observacao")
+	private String observacao;
 
-	
+	@Column(name = "tx_goolgemaps")
+	private String googleMaps;
+
 }

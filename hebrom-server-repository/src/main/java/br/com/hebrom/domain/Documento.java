@@ -15,19 +15,15 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "tb_usuario")
-public class Usuario {
+@Table(name = "tb_documento")
+public class Documento {
 
 	@Id
-	@Column(name = "id_usuario")
-	@GeneratedValue(generator = "seq_usuario")
+	@Column(name = "id_documento")
+	@GeneratedValue(generator = "seq_documento")
 	private Long id;
 
-	@Column(name = "tx_login")
-	private String login;
+	@Column(name = "tx_documento")
+	private String documento;
 
-	@Column(name = "tx_senha")
-	private String senha;
-
-	
 }

@@ -27,30 +27,21 @@ public class Evento {
 	@GeneratedValue(generator = "seq_evento")
 	private Long id;
 
-	@Column(name = "cd_empresa")
-	private Long codigoEmpresa;
-
-	@Column(name = "cd_categoria")
-	private Long codigoCategoria;
-
 	@Column(name = "tx_titulo")
 	private String titulo;
 
 	@Column(name = "tx_descricao")
 	private String descricao;
 
-	@Column(name = "tx_localizacao")
-	private String localizacao;
-
-	@Column(name = "dt_evento")
+	@Column(name = "dt_inicio")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataEvento;
+	private Date dataInicio;
 
-	@Column(name = "dt_cadastro")
+	@Column(name = "dt_final")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataCadastro;
+	private Date dataFinal;
 
 	@Column(name = "tx_banner")
 	private String banner;
-	
+
 }
