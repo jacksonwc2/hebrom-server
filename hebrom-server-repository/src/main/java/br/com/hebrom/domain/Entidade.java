@@ -15,14 +15,18 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "tb_empresa")
-public class Empresa {
+@Table(name = "tb_entidade")
+public class Entidade {
 
 	@Id
-	@Column(name = "id_empresa")
-	@GeneratedValue(generator = "seq_empresa")
+	@Column(name = "id_entidade")
+	@GeneratedValue(generator = "seq_entidade")
 	private Long id;
 
-	@Column(name = "tx_nome")
-	private String nome;
+	@Column(name = "tx_nomefantasia")
+	private String nomeFantasia;
+	
+	@Column(name = "tx_razaosocial")
+	private String razaoSocial;
+	
 }
