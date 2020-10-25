@@ -18,18 +18,18 @@ import lombok.Setter;
 @Table(name = "tb_localizacao")
 public class Localizacao {
 
-	@Id
-	@Column(name = "id_localizacao")
-	@GeneratedValue(generator = "seq_localizacao")
-	private Long id;
+    @Id
+    @Column(name = "id_localizacao")
+    @GeneratedValue(generator = "seq_localizacao")
+    private Long id;
 
-	@Column(name = "tx_localizacao")
-	private String localizacao;
+    @Column(name = "tx_descricao")
+    private String descricao;
 
-	@Column(name = "tx_observacao")
-	private String observacao;
+    @Column(name = "tx_observacao")
+    private String observacao;
 
-	@Column(name = "tx_goolgemaps")
-	private String googleMaps;
+    @Column(name = "tx_urimaps")
+    private String uriMaps;
 
 }
