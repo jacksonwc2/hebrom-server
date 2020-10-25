@@ -18,6 +18,16 @@
 
 	</changeSet>
 	
+	<changeSet author="Jackson Willian Carbonera" id="carga_tb_usuario">
+
+		<sql splitStatements="false" stripComments="false" dbms="postgresql">
+            <![CDATA[
+            	INSERT INTO tb_usuario (id_usuario, tx_login, tx_senha) VALUES (nextval('seq_usuario'), 'admin', '123456');
+            ]]>
+		</sql>
+		
+	</changeSet>
+	
 	<changeSet author="Jackson Willian Carbonera" id="criar_tb_categoria">
 
 		<createTable remarks="Entidade Categoria" tableName="tb_categoria">

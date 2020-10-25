@@ -9,8 +9,10 @@ public class AutenticacaoRetrieveDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String nome;
+    private Long id;
 
-    private String token;
+    private String login;
+
+    private String senha;
 
 }

@@ -13,7 +13,7 @@ public class AutenticacaoPayloadDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String usuario;
+    private String login;
 
     private String senha;
 }
