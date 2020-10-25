@@ -17,5 +17,135 @@
 		<createSequence incrementBy="1" sequenceName="seq_usuario" startValue="1" />
 
 	</changeSet>
+	
+	<changeSet author="Jackson Willian Carbonera" id="criar_tb_categoria">
+
+		<createTable remarks="Entidade Categoria" tableName="tb_categoria">
+			<column name="id_categoria" type="numeric">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="tx_descricao" type="varchar(32)"></column>
+			<column name="tx_observacao" type="varchar(255)"></column>
+		</createTable>
+
+		<createSequence incrementBy="1" sequenceName="seq_categoria" startValue="1" />
+
+	</changeSet>
+	
+	<changeSet author="Jackson Willian Carbonera" id="criar_tb_localizacao">
+
+		<createTable remarks="Entidade Localizacao" tableName="tb_localizacao">
+			<column name="id_localizacao" type="numeric">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="tx_descricao" type="varchar(32)"></column>
+			<column name="tx_observacao" type="varchar(255)"></column>
+			<column name="tx_urimaps" type="varchar(50)"></column>
+		</createTable>
+
+		<createSequence incrementBy="1" sequenceName="seq_localizacao" startValue="1" />
+
+	</changeSet>
+	
+	<changeSet author="Jackson Willian Carbonera" id="criar_tb_documentotipo">
+
+		<createTable remarks="Entidade DocumentoTipo" tableName="tb_documentotipo">
+			<column name="id_documentotipo" type="numeric">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="tx_descricao" type="varchar(32)"></column>
+		</createTable>
+
+	</changeSet>
+	
+	<changeSet author="Jackson Willian Carbonera" id="carga_tb_documentotipo">
+
+		<insert tableName="tb_documentotipo">
+			<column name="id_documentotipo" value="1" />
+			<column name="tx_descricao" value="CPF" />
+		</insert>
+		
+		<insert tableName="tb_documentotipo">
+			<column name="id_documentotipo" value="2" />
+			<column name="tx_descricao" value="CNPJ" />
+		</insert>
+		
+		<insert tableName="tb_documentotipo">
+			<column name="id_documentotipo" value="3" />
+			<column name="tx_descricao" value="RG" />
+		</insert>
+		
+		<insert tableName="tb_documentotipo">
+			<column name="id_documentotipo" value="4" />
+			<column name="tx_descricao" value="IE" />
+		</insert>
+
+	</changeSet>
+	
+	<changeSet author="Jackson Willian Carbonera" id="criar_tb_documento">
+
+		<createTable remarks="Entidade Documento" tableName="tb_documento">
+			<column name="id_documento" type="numeric">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="cd_documentotipo" type="numeric">
+				<constraints nullable="false" foreignKeyName="documentotipo_fk" references="tb_documentotipo(id_documentotipo)" />
+			</column>
+			<column name="tx_documento" type="varchar(32)"></column>
+		</createTable>
+		
+		<createSequence incrementBy="1" sequenceName="seq_documento" startValue="1" />
+
+	</changeSet>
+	
+	<changeSet author="Jackson Willian Carbonera" id="criar_tb_entidade">
+
+		<createTable remarks="Entidade Entidade" tableName="tb_entidade">
+			<column name="id_entidade" type="numeric">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="cd_documento" type="numeric">
+				<constraints nullable="false" foreignKeyName="documento_fk" references="tb_documento(id_documento)" />
+			</column>
+			<column name="cd_localizacao" type="numeric">
+				<constraints nullable="false" foreignKeyName="localizacao_fk" references="tb_localizacao(id_localizacao)" />
+			</column>
+			<column name="tx_nomefantasia" type="varchar(33)"></column>
+			<column name="tx_razaosocial" type="varchar(33)"></column>
+		</createTable>
+		
+		<createSequence incrementBy="1" sequenceName="seq_entidade" startValue="1" />
+
+	</changeSet>
+	
+	<changeSet author="Jackson Willian Carbonera" id="criar_tb_evento">
+
+		<createTable remarks="Entidade Evento" tableName="tb_evento">
+			<column name="id_evento" type="numeric">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="cd_categoria" type="numeric">
+				<constraints nullable="false" foreignKeyName="eventocategoria_fk" references="tb_categoria(id_categoria)" />
+			</column>
+			<column name="cd_entidade" type="numeric">
+				<constraints nullable="false" foreignKeyName="eventoentidade_fk" references="tb_entidade(id_entidade)" />
+			</column>
+			<column name="cd_localizacao" type="numeric">
+				<constraints nullable="false" foreignKeyName="eventolocalizacao_fk" references="tb_localizacao(id_localizacao)" />
+			</column>
+			<column name="dt_inicio" type="datetime" defaultValueComputed="now()">
+				<constraints nullable="false" />
+			</column>
+			<column name="dt_final" type="datetime" defaultValueComputed="now()">
+				<constraints nullable="false" />
+			</column>
+			<column name="tx_titulo" type="varchar(32)"></column>
+			<column name="tx_descricao" type="varchar(100)"></column>
+			<column name="tx_banner" type="varchar(32)"></column>
+		</createTable>
+		
+		<createSequence incrementBy="1" sequenceName="seq_evento" startValue="1" />
+
+	</changeSet>
 
 </databaseChangeLog>
