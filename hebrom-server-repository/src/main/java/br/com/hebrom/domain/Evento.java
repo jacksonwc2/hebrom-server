@@ -22,26 +22,35 @@ import lombok.Setter;
 @Table(name = "tb_evento")
 public class Evento {
 
-	@Id
-	@Column(name = "id_evento")
-	@GeneratedValue(generator = "seq_evento")
-	private Long id;
+    @Id
+    @Column(name = "id_evento")
+    @GeneratedValue(generator = "seq_evento")
+    private Long id;
 
-	@Column(name = "tx_titulo")
-	private String titulo;
+    @Column(name = "cd_categoria")
+    private Long codigoCategoria;
 
-	@Column(name = "tx_descricao")
-	private String descricao;
+    @Column(name = "cd_entidade")
+    private Long codigoEntidade;
 
-	@Column(name = "dt_inicio")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataInicio;
+    @Column(name = "cd_localizacao")
+    private Long codigoLocalizacao;
 
-	@Column(name = "dt_final")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataFinal;
+    @Column(name = "dt_inicio")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dataInicio;
 
-	@Column(name = "tx_banner")
-	private String banner;
+    @Column(name = "dt_final")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dataFinal;
+
+    @Column(name = "tx_titulo")
+    private String titulo;
+
+    @Column(name = "tx_descricao")
+    private String descricao;
+
+    @Column(name = "tx_banner")
+    private String banner;
 
 }
