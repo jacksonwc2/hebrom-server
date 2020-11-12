@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
 
-import br.com.hebrom.propertie.FileStorageProperties;
+import br.com.hebrom.config.FileStorageProperties;
 
 @SpringBootApplication
 @EnableConfigurationProperties({ FileStorageProperties.class })

@@ -1,9 +1,10 @@
-package br.com.hebrom.propertie;
+package br.com.hebrom.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "file")
 public class FileStorageProperties {
+
     private String uploadDir;
 
     public String getUploadDir() {
