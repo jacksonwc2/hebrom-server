@@ -1,6 +1,8 @@
 package br.com.hebrom.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,19 +18,19 @@ public class FileServiceImpl implements FileService {
     private FileStorageService fileStorageService;
 
     @Override
-    public String upload(MultipartFile[] files) {
+    public List<String> upload(MultipartFile[] files) {
 
-        String fileName = "";
+        List<String> ret = new ArrayList<>();
 
         for (MultipartFile multipartFile : files) {
             try {
-                fileName = fileStorageService.storeFile(multipartFile,
-                        DateUtil.toString(new Date(), DateUtil.DD_MM_YYYY_HH_MM_SS_IMAGE) + multipartFile.getOriginalFilename());
+                ret.add(fileStorageService.storeFile(multipartFile,
+                        DateUtil.toString(new Date(), DateUtil.DD_MM_YYYY_HH_MM_SS_IMAGE) + multipartFile.getOriginalFilename()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
 
-        return fileName;
+        return ret;
     }
 }

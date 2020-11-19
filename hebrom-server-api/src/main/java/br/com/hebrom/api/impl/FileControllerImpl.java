@@ -3,6 +3,7 @@ package br.com.hebrom.api.impl;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -30,7 +31,7 @@ public class FileControllerImpl implements FileController {
     private FileStorageService fileStorageService;
 
     @Override
-    public String uploads(@RequestPart("filename") MultipartFile[] files) {
+    public List<String> uploads(@RequestPart("filename") MultipartFile[] files) {
 
         return uploadService.upload(files);
     }

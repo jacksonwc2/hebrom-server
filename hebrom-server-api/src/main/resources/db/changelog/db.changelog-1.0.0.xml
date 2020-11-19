@@ -12,8 +12,16 @@
 			<column name="id_usuario" type="numeric">
 				<constraints primaryKey="true" />
 			</column>
+			<column name="cd_funcionalidade" type="numeric">
+				<constraints nullable="false"
+					foreignKeyName="funcionalidade_fk"
+					references="tb_funcionalidade(id_funcionalidade)" />
+			</column>
 			<column name="tx_login" type="varchar(32)"></column>
 			<column name="tx_senha" type="varchar(32)"></column>
+			<column name="fl_cadastrar" type="boolean"></column>
+			<column name="fl_editar" type="boolean"></column>
+			<column name="fl_excluir" type="boolean"></column>
 		</createTable>
 
 		<createSequence incrementBy="1"
@@ -27,7 +35,7 @@
 		<sql splitStatements="false" stripComments="false"
 			dbms="postgresql">
             <![CDATA[
-            	INSERT INTO tb_usuario (id_usuario, tx_login, tx_senha) VALUES (nextval('seq_usuario'), 'admin', '123456');
+            	INSERT INTO tb_usuario (id_usuario, tx_login, tx_senha, fl_cadastrar, fl_editar, fl_excluir) VALUES (nextval('seq_usuario'), 'admin', '123456', true, true, true);
             ]]>
 		</sql>
 
@@ -50,20 +58,18 @@
 	</changeSet>
 
 	<changeSet author="Jackson Willian Carbonera"
-		id="criar_tb_localizacao">
+		id="criar_tb_espaco">
 
-		<createTable remarks="Entidade Localizacao"
-			tableName="tb_localizacao">
-			<column name="id_localizacao" type="numeric">
+		<createTable remarks="Entidade Categoria"
+			tableName="tb_espaco">
+			<column name="id_espaco" type="numeric">
 				<constraints primaryKey="true" />
 			</column>
 			<column name="tx_descricao" type="varchar(32)"></column>
-			<column name="tx_observacao" type="varchar(255)"></column>
-			<column name="tx_urimaps" type="varchar(50)"></column>
 		</createTable>
 
 		<createSequence incrementBy="1"
-			sequenceName="seq_localizacao" startValue="1" />
+			sequenceName="seq_espaco" startValue="1" />
 
 	</changeSet>
 
@@ -75,61 +81,103 @@
 			<column name="id_entidade" type="numeric">
 				<constraints primaryKey="true" />
 			</column>
-			<column name="cd_localizacao" type="numeric">
-				<constraints nullable="false"
-					foreignKeyName="localizacao_fk"
-					references="tb_localizacao(id_localizacao)" />
-			</column>
 			<column name="tx_nomefantasia" type="varchar(33)"></column>
 			<column name="tx_razaosocial" type="varchar(33)"></column>
-			<column name="tx_documento" type="varchar(32)">
-				<constraints nullable="false" />
-			</column>
+			<column name="tx_cnpj" type="varchar(32)"></column>
+			<column name="tx_endereco" type="varchar(32)"></column>
+			<column name="tx_telefone" type="varchar(32)"></column>
+			<column name="tx_email" type="varchar(32)"></column>
 		</createTable>
 
 		<createSequence incrementBy="1"
 			sequenceName="seq_entidade" startValue="1" />
 
 	</changeSet>
+	
+	<changeSet author="Jackson Willian Carbonera"
+		id="criar_tb_acervostatus">
+
+		<createTable remarks="Entidade Acervo Status"
+			tableName="tb_acervostatus">
+			<column name="id_acervostatus" type="numeric">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="tx_descricao" type="varchar(32)"></column>
+		</createTable>
+
+		<createSequence incrementBy="1"
+			sequenceName="seq_acervostatus" startValue="1" />
+
+	</changeSet>
 
 	<changeSet author="Jackson Willian Carbonera"
-		id="criar_tb_evento">
+		id="carga_tb_usuario">
 
-		<createTable remarks="Entidade Evento"
-			tableName="tb_evento">
-			<column name="id_evento" type="numeric">
+		<sql splitStatements="false" stripComments="false"
+			dbms="postgresql">
+            <![CDATA[
+            	INSERT INTO tb_acervostatus (id_acervostatus, tx_descricao) VALUES (nextval('seq_acervostatus'), 'Exposição');
+            	INSERT INTO tb_acervostatus (id_acervostatus, tx_descricao) VALUES (nextval('seq_acervostatus'), 'Manutenção');
+            ]]>
+		</sql>
+
+	</changeSet>
+
+	<changeSet author="Jackson Willian Carbonera"
+		id="criar_tb_acervo">
+
+		<createTable remarks="Entidade Acervo"
+			tableName="tb_acervo">
+			<column name="id_acervo" type="numeric">
 				<constraints primaryKey="true" />
 			</column>
 			<column name="cd_categoria" type="numeric">
 				<constraints nullable="false"
-					foreignKeyName="eventocategoria_fk"
+					foreignKeyName="acervocategoria_fk"
 					references="tb_categoria(id_categoria)" />
 			</column>
-			<column name="cd_entidade" type="numeric">
+			<column name="cd_espaco" type="numeric">
 				<constraints nullable="false"
-					foreignKeyName="eventoentidade_fk"
-					references="tb_entidade(id_entidade)" />
+					foreignKeyName="acervoespaco_fk"
+					references="tb_espaco(id_espaco)" />
 			</column>
-			<column name="cd_localizacao" type="numeric">
+			<column name="cd_acervostatus" type="numeric">
 				<constraints nullable="false"
-					foreignKeyName="eventolocalizacao_fk"
-					references="tb_localizacao(id_localizacao)" />
+					foreignKeyName="acervostatus_fk"
+					references="tb_acervostatus(id_acervostatus)" />
 			</column>
-			<column name="dt_inicio" type="datetime"
+			<column name="dt_cadastro" type="datetime"
 				defaultValueComputed="now()">
 				<constraints nullable="false" />
 			</column>
-			<column name="dt_final" type="datetime"
-				defaultValueComputed="now()"></column>
-			<column name="tx_titulo" type="varchar(32)">
-				<constraints nullable="false" />
-			</column>
+			<column name="tx_nome" type="varchar(100)"></column>
 			<column name="tx_descricao" type="varchar(100)"></column>
-			<column name="tx_banner" type="varchar(32)"></column>
+			<column name="fl_ativo" type="boolean"></column>
 		</createTable>
 
 		<createSequence incrementBy="1"
-			sequenceName="seq_evento" startValue="1" />
+			sequenceName="seq_acervo" startValue="1" />
+
+	</changeSet>
+	
+	<changeSet author="Jackson Willian Carbonera"
+		id="criar_tb_acervofiles">
+
+		<createTable remarks="Entidade Acervo"
+			tableName="tb_acervofiles">
+			<column name="id_acervofiles" type="numeric">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="cd_acervo" type="numeric">
+				<constraints nullable="false"
+					foreignKeyName="acervofiles_fk"
+					references="tb_acervo(id_acervo)" />
+			</column>
+			<column name="tx_url" type="varchar(32)"></column>
+		</createTable>
+
+		<createSequence incrementBy="1"
+			sequenceName="seq_acervofiles" startValue="1" />
 
 	</changeSet>
 

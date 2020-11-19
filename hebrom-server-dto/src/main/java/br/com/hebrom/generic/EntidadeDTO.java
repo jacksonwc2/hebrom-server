@@ -17,10 +17,12 @@ public class EntidadeDTO {
 
     private String razaoSocial;
 
-    private String documento;
+    private String cnpj;
 
-    private Long codigoLocalizacao;
+    private String endereco;
 
-    private LocalizacaoDTO localizacao;
+    private String telefone;
+
+    private String email;
 
 }

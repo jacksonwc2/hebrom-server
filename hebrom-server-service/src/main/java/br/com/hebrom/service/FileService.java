@@ -1,9 +1,11 @@
 package br.com.hebrom.service;
 
+import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
 
 public interface FileService {
 
-    public String upload(MultipartFile[] files);
+    public List<String> upload(MultipartFile[] files);
 
 }
