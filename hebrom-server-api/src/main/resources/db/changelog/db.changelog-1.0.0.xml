@@ -12,11 +12,6 @@
 			<column name="id_usuario" type="numeric">
 				<constraints primaryKey="true" />
 			</column>
-			<column name="cd_funcionalidade" type="numeric">
-				<constraints nullable="false"
-					foreignKeyName="funcionalidade_fk"
-					references="tb_funcionalidade(id_funcionalidade)" />
-			</column>
 			<column name="tx_login" type="varchar(32)"></column>
 			<column name="tx_senha" type="varchar(32)"></column>
 			<column name="fl_cadastrar" type="boolean"></column>
@@ -87,6 +82,7 @@
 			<column name="tx_endereco" type="varchar(32)"></column>
 			<column name="tx_telefone" type="varchar(32)"></column>
 			<column name="tx_email" type="varchar(32)"></column>
+			<column name="tx_documento" type="varchar(32)"></column>
 		</createTable>
 
 		<createSequence incrementBy="1"
@@ -111,7 +107,7 @@
 	</changeSet>
 
 	<changeSet author="Jackson Willian Carbonera"
-		id="carga_tb_usuario">
+		id="carga_tb_acervostatus">
 
 		<sql splitStatements="false" stripComments="false"
 			dbms="postgresql">

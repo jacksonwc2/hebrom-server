@@ -32,16 +32,16 @@ public class Acervo {
     private String descricao;
 
     @Column(name = "cd_categoria")
-    private String codigoCategoria;
+    private Long codigoCategoria;
 
     @Column(name = "cd_espaco")
-    private String codigoEspaco;
+    private Long codigoEspaco;
 
     @Column(name = "fl_ativo")
     private Boolean flagAtivo;
 
     @Column(name = "cd_acervostatus")
-    private String codigoAcervoStatus;
+    private Long codigoAcervoStatus;
 
     @Column(name = "dt_cadastro")
     private Date dataCadastro;

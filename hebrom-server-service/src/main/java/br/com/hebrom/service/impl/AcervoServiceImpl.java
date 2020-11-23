@@ -51,11 +51,20 @@ public class AcervoServiceImpl implements AcervoService {
         if (entidadeDTO.getId() != null) {
             List<AcervoFiles> files = acervoFilesRepository.getAllByCodigoAcervo(entidadeDTO.getId());
 
-            files.stream().filter(x -> !entidadeDTO.getFiles().contains(x.getUrl())).forEach(y -> acervoFilesRepository.delete(y));
-            entidadeDTO.getFiles().removeIf(x -> entidadeDTO.getFiles().contains(x));
+            if (files != null && entidadeDTO.getFiles() != null) {
+                files.stream().filter(x -> !entidadeDTO.getFiles().contains(x.getUrl())).forEach(y -> acervoFilesRepository.delete(y));
+                entidadeDTO.getFiles().removeIf(x -> entidadeDTO.getFiles().contains(x));
+            }
         }
 
-        entidadeDTO.getFiles().forEach(x -> acervoFilesRepository.save(new AcervoFiles(null, x, entidade.getId())));
+        if (entidadeDTO.getFiles() != null) {
+            entidadeDTO.getFiles().forEach(x -> {
+                AcervoFiles file = new AcervoFiles();
+                file.setUrl(x);
+                file.setCodigoAcervo(entidade.getId());
+                acervoFilesRepository.save(file);
+            });
+        }
 
         return ModelMapperUtil.convert(entidadeRepository.save(entidade), AcervoDTO.class);
     }

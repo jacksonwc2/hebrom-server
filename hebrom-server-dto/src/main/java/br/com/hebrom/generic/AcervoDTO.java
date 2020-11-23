@@ -20,13 +20,13 @@ public class AcervoDTO {
 
     private String descricao;
 
-    private String codigoCategoria;
+    private Long codigoCategoria;
 
-    private String codigoEspaco;
+    private Long codigoEspaco;
 
     private Boolean flagAtivo;
 
-    private String codigoAcervoStatus;
+    private Long codigoAcervoStatus;
 
     private Date dataCadastro;
 

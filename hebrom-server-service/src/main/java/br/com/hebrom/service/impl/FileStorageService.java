@@ -22,7 +22,7 @@ public class FileStorageService {
 
     private final Path fileStorageLocation;
 
-    @Autowired(required = true)
+    @Autowired
     public FileStorageService(FileStorageProperties fileStorageProperties) throws Exception {
 
         this.fileStorageLocation = Paths.get(fileStorageProperties.getUploadDir()).toAbsolutePath().normalize();

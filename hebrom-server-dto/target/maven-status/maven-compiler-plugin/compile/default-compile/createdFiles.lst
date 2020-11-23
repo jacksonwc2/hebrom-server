@@ -1,2 +1,8 @@
-br\com\hebrom\payload\AutenticacaoPayloadDTO.class
+br\com\hebrom\generic\EventoDTO.class
+br\com\hebrom\generic\CategoriaDTO.class
+br\com\hebrom\generic\EntidadeDTO.class
+br\com\hebrom\generic\LocalizacaoDTO.class
 br\com\hebrom\retrieve\AutenticacaoRetrieveDTO.class
+br\com\hebrom\payload\AutenticacaoPayloadDTO.class
+br\com\hebrom\generic\AcervoDTO.class
+br\com\hebrom\generic\DocumentoDTO.class
