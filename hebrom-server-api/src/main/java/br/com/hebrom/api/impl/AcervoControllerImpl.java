@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,8 +21,9 @@ public class AcervoControllerImpl implements AcervoController {
     private AcervoService entidadeService;
 
     @Override
-    public List<AcervoDTO> adquirirTodos() {
-        return entidadeService.adquirirTodos();
+    public List<AcervoDTO> adquirirTodos(@Param("codigoCategoria") Long codigoCategoria, @Param("codigoEspaco") Long codigoEspaco,
+            @Param("nome") String nome) {
+        return entidadeService.adquirirTodos(codigoCategoria, codigoEspaco, nome);
     }
 
     @Override

@@ -6,7 +6,7 @@ import br.com.hebrom.generic.AcervoDTO;
 
 public interface AcervoService {
 
-    public List<AcervoDTO> adquirirTodos();
+    public List<AcervoDTO> adquirirTodos(Long codigoCategoria, Long codigoEspaco, String nome);
 
     public AcervoDTO adquirirPorId(Long codigoEntidade);
 

@@ -12,7 +12,7 @@ import br.com.hebrom.generic.AcervoDTO;
 public interface AcervoController {
 
     @RequestMapping(value = "/adquirirTodos", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<AcervoDTO> adquirirTodos();
+    public List<AcervoDTO> adquirirTodos(Long codigoCategoria, Long codigoEspaco, String nome);
 
     @RequestMapping(value = "/adquirir/{codigoEntidade}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public AcervoDTO adquirirPorId(Long codigoEntidade);

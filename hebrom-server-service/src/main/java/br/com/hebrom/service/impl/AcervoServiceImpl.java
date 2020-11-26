@@ -27,8 +27,22 @@ public class AcervoServiceImpl implements AcervoService {
     private AcervoFilesRepository acervoFilesRepository;
 
     @Override
-    public List<AcervoDTO> adquirirTodos() {
+    public List<AcervoDTO> adquirirTodos(Long codigoCategoria, Long codigoEspaco, String nome) {
         List<AcervoDTO> ret = ModelMapperUtil.mapList(entidadeRepository.findAll(), AcervoDTO.class);
+
+        ret.removeIf(x -> {
+
+            if (codigoCategoria != null && x.getCodigoCategoria() != codigoCategoria)
+                return true;
+            if (codigoEspaco != null && x.getCodigoEspaco() != codigoEspaco)
+                return true;
+            if (nome != null && !nome.trim().isEmpty() && !x.getNome().contains(nome.trim()))
+                return true;
+
+            return false;
+
+        });
+
         ret.forEach(
                 x -> x.setFiles(acervoFilesRepository.getAllByCodigoAcervo(x.getId()).stream().map(y -> y.getUrl()).collect(Collectors.toList())));
 

@@ -176,5 +176,19 @@
 			sequenceName="seq_acervofiles" startValue="1" />
 
 	</changeSet>
+	
+	
+	<changeSet author="Jackson Willian Carbonera"
+		id="criar_tb_visitante">
+	
+		<createTable remarks="Entidade Visitante"
+			tableName="tb_visitante">
+			<column name="tx_nome" type="varchar"></column>
+			<column name="tx_idade" type="varchar"></column>
+			<column name="tx_telefone" type="varchar"></column>
+			<column name="tx_email" type="varchar"></column>
+		</createTable>
+
+	</changeSet>
 
 </databaseChangeLog>
