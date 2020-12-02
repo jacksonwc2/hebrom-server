@@ -18,16 +18,24 @@ import lombok.Setter;
 @Table(name = "tb_usuario")
 public class Usuario {
 
-	@Id
-	@Column(name = "id_usuario")
-	@GeneratedValue(generator = "seq_usuario")
-	private Long id;
+    @Id
+    @Column(name = "id_usuario")
+    @GeneratedValue(generator = "seq_usuario")
+    private Long id;
 
-	@Column(name = "tx_login")
-	private String login;
+    @Column(name = "tx_login")
+    private String login;
 
-	@Column(name = "tx_senha")
-	private String senha;
+    @Column(name = "tx_senha")
+    private String senha;
 
-	
+    @Column(name = "fl_editar")
+    private Boolean flagEditar;
+
+    @Column(name = "fl_excluir")
+    private Boolean flagExcluir;
+
+    @Column(name = "fl_cadastrar")
+    private Boolean flagCadastrar;
+
 }
