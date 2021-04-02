@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.hebrom.domain.Evento;
 import br.com.hebrom.generic.EventoDTO;
+import br.com.hebrom.repository.EventoDTORepository;
 import br.com.hebrom.repository.EventoRepository;
 import br.com.hebrom.service.EventoService;
 import br.com.hebrom.util.ModelMapperUtil;
@@ -19,9 +20,13 @@ public class EventoServiceImpl implements EventoService {
     @Autowired
     private EventoRepository eventoRepository;
 
+    @Lazy
+    @Autowired
+    private EventoDTORepository eventoDTORepository;
+
     @Override
     public List<EventoDTO> adquirirTodos() {
-        return ModelMapperUtil.mapList(eventoRepository.findAll(), EventoDTO.class);
+        return ModelMapperUtil.mapList(eventoDTORepository.adquirirTodos(), EventoDTO.class);
     }
 
     @Override

@@ -1,7 +1,6 @@
 package br.com.hebrom.generic;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,14 +23,16 @@ public class EventoDTO implements Serializable {
 
     private Long codigoLocalizacao;
 
-    private Date dataInicio;
+    private String dataInicio;
 
-    private Date dataFinal;
+    private String dataFinal;
 
     private String titulo;
 
     private String descricao;
 
     private String banner;
+
+    private String descricaoEntidade;
 
 }

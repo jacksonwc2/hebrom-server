@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import br.com.hebrom.api.FileController;
+import br.com.hebrom.generic.StringDTO;
 import br.com.hebrom.service.FileService;
 import br.com.hebrom.service.impl.FileStorageService;
 
@@ -30,7 +31,7 @@ public class FileControllerImpl implements FileController {
     private FileStorageService fileStorageService;
 
     @Override
-    public String uploads(@RequestPart("filename") MultipartFile[] files) {
+    public StringDTO uploads(@RequestPart("filename") MultipartFile[] files) {
 
         return uploadService.upload(files);
     }

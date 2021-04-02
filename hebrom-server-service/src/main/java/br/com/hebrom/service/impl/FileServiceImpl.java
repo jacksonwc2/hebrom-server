@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import br.com.hebrom.generic.StringDTO;
 import br.com.hebrom.service.FileService;
 import br.com.hebrom.util.DateUtil;
 
@@ -16,7 +17,7 @@ public class FileServiceImpl implements FileService {
     private FileStorageService fileStorageService;
 
     @Override
-    public String upload(MultipartFile[] files) {
+    public StringDTO upload(MultipartFile[] files) {
 
         String fileName = "";
 
@@ -29,6 +30,6 @@ public class FileServiceImpl implements FileService {
             }
         }
 
-        return fileName;
+        return new StringDTO(fileName);
     }
 }
