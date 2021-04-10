@@ -20,8 +20,8 @@ public class EventoControllerImpl implements EventoController {
     private EventoService eventoService;
 
     @Override
-    public List<EventoDTO> adquirirTodos() {
-        return eventoService.adquirirTodos();
+    public List<EventoDTO> adquirirTodos(String pesquisa, Long categoria) {
+        return eventoService.adquirirTodos(pesquisa, categoria);
     }
 
     @Override

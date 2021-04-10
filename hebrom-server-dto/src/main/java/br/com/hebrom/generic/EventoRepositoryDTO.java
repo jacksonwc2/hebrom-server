@@ -39,6 +39,18 @@ public class EventoRepositoryDTO implements Serializable {
     @Column(name = "descricaoentidade")
     private String descricaoEntidade;
 
+    @Column(name = "descricaocategoria")
+    private String descricaoCategoria;
+
+    @Column(name = "urilocalizacao")
+    private String uriLocalizacao;
+
+    @Column(name = "descricaolocalizacao")
+    private String descricaoLocalizacao;
+
+    @Column(name = "obslocalizacao")
+    private String obsLocalizacao;
+
     @Column(name = "inicio")
     private String dataInicio;
 

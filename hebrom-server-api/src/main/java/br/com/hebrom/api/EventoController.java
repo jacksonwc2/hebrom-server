@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.hebrom.generic.EventoDTO;
 
@@ -12,7 +13,8 @@ import br.com.hebrom.generic.EventoDTO;
 public interface EventoController {
 
     @RequestMapping(value = "/adquirirTodos", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<EventoDTO> adquirirTodos();
+    public List<EventoDTO> adquirirTodos(@RequestParam(name = "pesquisa", required = false) String pesquisa,
+            @RequestParam(name = "categoria", required = false) Long categoria);
 
     @RequestMapping(value = "/adquirir/{codigoEvento}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public EventoDTO adquirirPorId(Long codigoEvento);

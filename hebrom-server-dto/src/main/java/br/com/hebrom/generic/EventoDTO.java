@@ -35,4 +35,12 @@ public class EventoDTO implements Serializable {
 
     private String descricaoEntidade;
 
+    private String descricaoCategoria;
+
+    private String uriLocalizacao;
+
+    private String descricaoLocalizacao;
+
+    private String obsLocalizacao;
+
 }

@@ -25,8 +25,8 @@ public class EventoServiceImpl implements EventoService {
     private EventoDTORepository eventoDTORepository;
 
     @Override
-    public List<EventoDTO> adquirirTodos() {
-        return ModelMapperUtil.mapList(eventoDTORepository.adquirirTodos(), EventoDTO.class);
+    public List<EventoDTO> adquirirTodos(String pesquisa, Long categoria) {
+        return ModelMapperUtil.mapList(eventoDTORepository.adquirirTodos(pesquisa, categoria), EventoDTO.class);
     }
 
     @Override

@@ -6,7 +6,7 @@ import br.com.hebrom.generic.EventoDTO;
 
 public interface EventoService {
 
-    public List<EventoDTO> adquirirTodos();
+    public List<EventoDTO> adquirirTodos(String pesquisa, Long categoria);
 
     public EventoDTO adquirirPorId(Long codigoEvento);
 
