@@ -9,6 +9,7 @@ import br.com.hebrom.generic.EventoRepositoryDTO;
 @Repository
 public interface EventoDTORepositoryCustom {
 
-    public List<EventoRepositoryDTO> adquirirTodos(String pesquisa, Long categoria);
+    public List<EventoRepositoryDTO> adquirirTodos(String pesquisa, Long categoria, List<Long> entidades, List<Long> localizacoes, String dataInicio,
+            String dataFim);
 
 }

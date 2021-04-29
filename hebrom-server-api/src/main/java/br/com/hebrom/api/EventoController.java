@@ -14,7 +14,9 @@ public interface EventoController {
 
     @RequestMapping(value = "/adquirirTodos", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<EventoDTO> adquirirTodos(@RequestParam(name = "pesquisa", required = false) String pesquisa,
-            @RequestParam(name = "categoria", required = false) Long categoria);
+            @RequestParam(name = "categoria", required = false) Long categoria, @RequestParam(name = "entidades", required = false) String entidades,
+            @RequestParam(name = "localizacoes", required = false) String localizacoes,
+            @RequestParam(name = "dataInicio", required = false) String dataInicio, @RequestParam(name = "dataFim", required = false) String dataFim);
 
     @RequestMapping(value = "/adquirir/{codigoEvento}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public EventoDTO adquirirPorId(Long codigoEvento);
